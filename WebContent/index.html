@@ -1,0 +1,102 @@
+<!-- @author Haramrit Singh Khurana -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Student Survey Form</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+    <div class="header">
+        <h1 id="title"> Student Survey Form</h1>
+    </div><br>
+    <div class="container">
+        <form id="survey-form" action="">
+            <label class="left-col" for="fname">* First Name: </label>
+            <input class="right-col" placeholder="Enter your first name" type="text" name="fname" id="fname" required="required">
+
+            <label class="left-col" for="lname">* Last Name: </label>
+            <input class="right-col" placeholder="Enter your last name" type="text" name="lname" id="lname" required="required">
+
+            <label class="left-col" for="address">* Address: </label>
+            <input class="right-col" placeholder="Enter your address" type="text" name="address" id="address" required="required">
+
+            <label class="left-col" for="city">* City: </label>
+            <input class="right-col" placeholder="Enter the city you live in" type="text" name="city" id="city" required="required">
+
+            <label class="left-col" for="state">* State: </label>
+            <input class="right-col" placeholder="Enter the state you live in" type="text" name="state" id="state" required="required">
+
+            <label class="left-col" for="date_survey">* Zipcode: </label>
+            <input class="right-col" placeholder="Enter your area zipcode" type="text" name="zip" id="zip" required="required">
+
+            <label class="left-col" for="telephone">* Telephone: </label>
+            <input class="right-col" placeholder="Enter your telephone number" type="tel" name="telephone" id="telephone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" required="required">
+
+            <label class="left-col" for="email">* Email: </label>
+            <input class="right-col" placeholder="Enter your email address (e.g. johndoe@gmail.com)" type="email" name="email" id="email" required="required">
+
+            <label class="left-col" for="date_survey">* Date of Survey: </label>
+            <input class="right-col" type="date" name="date_survey" id="date_survey" required="required">
+
+            <label class="left-col" for="checkbox-div">What do you like the most about the campus?</label>
+            <div id="checkbox-div" class="right-col">
+                <br>
+                <input type="checkbox" name="cb1" id="cb1" value="Students">
+                <label for="cb1">Students</label>
+                <br>
+                <input type="checkbox" name="cb2" id="cb2" value="Location">
+                <label for="cb2">Location</label>
+                <br>
+                <input type="checkbox" name="cb3" id="cb3" value="Campus">
+                <label for="cb3">Campus</label>
+                <br>
+                <input type="checkbox" name="cb4" id="cb4" value="Atmosphere">
+                <label for="cb4">Atmosphere</label>
+                <br>
+                <input type="checkbox" name="cb5" id="cb5" value="Dorm Rooms">
+                <label for="cb5">Dorm Rooms</label>
+                <br>
+                <input type="checkbox" name="cb6" id="cb6" value="Sports">
+                <label for="cb6">Sports</label>
+            </div>
+
+            <label class="left-col" for="radio-div">How did you become interested in the university?</label>
+            <div class="right-col" id="radio-div">
+                <input type="radio" name="source" id="friends" value="friends">
+                <label for="friends">Friends</label>
+                <input type="radio" name="source" id="television" value="television">
+                <label for="television">Television</label>
+                <input type="radio" name="source" id="internet" value="internet">
+                <label for="internet">Internet</label>
+                <input type="radio" name="source" id="other" value="other">
+                <label for="other">Other</label>
+            </div>
+
+            <label class="left-col" for="likelihood">How likely are you to recommend it to your friends?</label>
+            <select class="right-col" name="likelihood" id="likelihood">
+              <option value="Very Likely">Very Likely</option>
+              <option value="Likely">Likely</option>
+              <option value="Unlikely">Unlikely</option>
+          </select>
+
+            <label class="left-col" for="raffle">Enter 10 numbers for Raffle:</label>
+            <input class="right-col" type="text" name="raffle" id="raffle">
+
+            <label class="left-col" for="comments">Comments:</label>
+            <textarea class="right-col" name=comments id=comments cols="30" rows="10"></textarea>
+
+            <div class="center-col">
+                <input type="submit" value="Submit">
+                <input type="submit" value="Cancel">
+            </div>
+        </form>
+
+    </div>
+
+</body>
+
+</html>

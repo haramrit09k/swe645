@@ -1,0 +1,92 @@
+/* @author Haramrit Singh Khurana */
+
+.header {
+    top: 20px;
+    position: relative;
+    border: 5px solid blue;
+    padding: 1%;
+    width: 300px;
+    left: 38%;
+    align-self: center;
+}
+
+#title {
+    border: 2px;
+    color: blue;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: rgb(129, 233, 137);
+    font-family: 'segoe ui';
+}
+
+body h1 {
+    text-align: center;
+}
+
+input[type="text"],
+input[type="email"] {
+    padding: 4px 2px;
+    left: 20px;
+}
+
+input::placeholder {
+    text-align: center;
+    padding: 4px 2px;
+    left: 20px;
+}
+
+textarea {
+    padding: 6px 4px;
+}
+
+input[type="submit"] {
+    color: red;
+    font-weight: bold;
+    font-size: medium;
+    background: inherit;
+    border: 2px solid blue;
+    border-radius: 25px;
+    padding: 3% 5%;
+}
+
+.container {
+    border: 5px solid blue;
+    position: relative;
+    top: 20px;
+    background: #e3dfde;
+    border-radius: 5px;
+    width: 50%;
+    margin: auto;
+    padding: 2% 5%;
+    text-align: center;
+}
+
+#survey-form {
+    display: grid;
+    grid-gap: 0%;
+    grid-template-columns: auto auto;
+}
+
+.left-col {
+    grid-column: 1;
+    text-align: left;
+    margin-bottom: 5%;
+    color: red;
+}
+
+.right-col {
+    grid-column: 2;
+    text-align: left;
+    margin-bottom: 5%;
+}
+
+.center-col {
+    grid-column: 1 / span 2;
+    margin-bottom: 5%;
+}
