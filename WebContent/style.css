@@ -4,7 +4,7 @@
 .header {
     top: 20px;
     position: relative;
-    border: 5px solid blue;
+    border: 5px solid yellow;
     padding: 1%;
     width: 300px;
     left: 38%;
@@ -13,7 +13,7 @@
 
 #title {
     border: 2px;
-    color: blue;
+    color: red;
 }
 
 * {
@@ -22,7 +22,7 @@
 
 body {
     margin: 0;
-    background: rgb(129, 233, 137);
+    background: blue;
     font-family: 'segoe ui';
 }
 
