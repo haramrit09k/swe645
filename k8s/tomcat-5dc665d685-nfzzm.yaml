@@ -1,0 +1,98 @@
+﻿apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    cni.projectcalico.org/podIP: 10.42.1.6/32
+  creationTimestamp: "2020-03-15T23:46:27Z"
+  generateName: tomcat-5dc665d685-
+  labels:
+    pod-template-hash: 5dc665d685
+    run: tomcat
+  name: tomcat-5dc665d685-nfzzm
+  namespace: default
+  ownerReferences:
+  - apiVersion: apps/v1
+    blockOwnerDeletion: true
+    controller: true
+    kind: ReplicaSet
+    name: tomcat-5dc665d685
+    uid: b111d70f-00e9-4658-ba06-f6b1605dbdc3
+  resourceVersion: "1942"
+  selfLink: /api/v1/namespaces/default/pods/tomcat-5dc665d685-nfzzm
+  uid: f856bc65-1f4d-4bdf-bc5b-9157cf661440
+spec:
+  containers:
+  - image: haramrit09k/docker-test:latest
+    imagePullPolicy: Always
+    name: tomcat
+    ports:
+    - containerPort: 8080
+      protocol: TCP
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: default-token-hnzcp
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: ip-172-31-16-202.ec2.internal
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: default-token-hnzcp
+    secret:
+      defaultMode: 420
+      secretName: default-token-hnzcp
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2020-03-15T23:46:27Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2020-03-15T23:46:43Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2020-03-15T23:46:43Z"
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2020-03-15T23:46:27Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: docker://846122ea6a92fc62916ad761705c6a2099129a7fea0200be54e2b04cb338dc64
+    image: haramrit09k/docker-test:latest
+    imageID: docker-pullable://haramrit09k/docker-test@sha256:8ea7da3f9fac049525e6b69032653aec335d4be211b19616044d3f7106022cf0
+    lastState: {}
+    name: tomcat
+    ready: true
+    restartCount: 0
+    started: true
+    state:
+      running:
+        startedAt: "2020-03-15T23:46:43Z"
+  hostIP: 172.31.16.202
+  phase: Running
+  podIP: 10.42.1.6
+  podIPs:
+  - ip: 10.42.1.6
+  qosClass: BestEffort
+  startTime: "2020-03-15T23:46:27Z"
