@@ -1,4 +1,4 @@
-FROM tomcat:9.0
+FROM tomcat:8.0
 LABEL authors="Haramrit Singh Khurana, Ajit Yadav"
 ADD target/student-survey-form-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/
 EXPOSE 8383
