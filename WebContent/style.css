@@ -1,6 +1,8 @@
 /* @author Haramrit Singh Khurana */
 
+
 /* This is the CSS stylesheet for the student survey form. */
+
 .header {
     top: 20px;
     position: relative;
@@ -22,7 +24,7 @@
 
 body {
     margin: 0;
-    background: green;
+    background: blue;
     font-family: 'segoe ui';
 }
 
