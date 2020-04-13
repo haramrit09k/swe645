@@ -1,0 +1,148 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: test-form
+  name: test-form
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test-form
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: test-form
+    spec:
+      containers:
+        - image: gcr.io/core-hash-274103/github.com/haramrit09k/swe645
+          imagePullPolicy: IfNotPresent
+          name: swe645-1
+---
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  labels:
+    app: test-form
+  name: test-form-hpa-yj4w
+  namespace: default
+spec:
+  maxReplicas: 5
+  metrics:
+    - resource:
+        name: cpu
+        targetAverageUtilization: 80
+      type: Resource
+  minReplicas: 1
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: test-form
+---
+apiVersion: v1
+kind: Service
+metadata:
+  generateName: test-form-794d799cb5-chsbj-
+  labels:
+    app: test-form
+    pod-template-hash: 794d799cb5
+  name: test-form-794d799cb5-chsbj-xs7v7
+  namespace: default
+spec:
+  clusterIP: 10.92.12.46
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 80
+  selector:
+    app: test-form
+    pod-template-hash: 794d799cb5
+  sessionAffinity: None
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  generateName: test-form-
+  labels:
+    app: test-form
+  name: test-form-jz77l
+  namespace: default
+spec:
+  clusterIP: 10.92.14.135
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: test-form
+  sessionAffinity: None
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: test-form
+  name: test-form-service
+  namespace: default
+spec:
+  clusterIP: 10.92.2.175
+  externalTrafficPolicy: Cluster
+  ports:
+    - nodePort: 32004
+      port: 80
+      protocol: TCP
+      targetPort: 80
+  selector:
+    app: test-form
+  sessionAffinity: None
+  type: LoadBalancer
+---
+apiVersion: v1
+kind: Service
+metadata:
+  generateName: test-form-794d799cb5-smz7z-
+  labels:
+    app: test-form
+    pod-template-hash: 794d799cb5
+  name: test-form-794d799cb5-smz7z-7vrp8
+  namespace: default
+spec:
+  clusterIP: 10.92.13.87
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 80
+  selector:
+    app: test-form
+    pod-template-hash: 794d799cb5
+  sessionAffinity: None
+  type: ClusterIP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  generateName: test-form-
+  labels:
+    app: test-form
+  name: test-form-972dw
+  namespace: default
+spec:
+  clusterIP: 10.92.7.0
+  externalTrafficPolicy: Cluster
+  ports:
+    - nodePort: 30378
+      port: 80
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: test-form
+  sessionAffinity: None
+  type: LoadBalancer
