@@ -1,6 +1,15 @@
+FROM maven:3.6.0-jdk-11-slim AS build
+COPY src /home/app/src
+COPY pom.xml /home/app
+RUN mvn -f /home/app/pom.xml clean package
+
+
+
+
 FROM tomcat:8.0
 LABEL authors="Haramrit Singh Khurana, Ajit Yadav"
-ADD student-survey-form.war /usr/local/tomcat/webapps/
+COPY --from=build /home/app/target/student-survey-form-0.0.1-SNAPSHOT.war /usr/local/lib/student-survey-form.war
+# ADD target/student-survey-form-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/
 COPY tomcat-config/tomcat-users.xml /usr/local/tomcat/conf
 COPY tomcat-config/manager.xml /usr/local/tomcat/conf/Catalina/localhost
 COPY tomcat-config/host-manager.xml /usr/local/tomcat/conf/Catalina/localhost
