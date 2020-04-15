@@ -5,7 +5,7 @@ RUN mvn -f /home/app/pom.xml clean package
 
 FROM tomcat:8.0
 LABEL authors="Haramrit Singh Khurana, Ajit Yadav"
-COPY --from=0 /home/app/target/student-survey-form-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/student-survey-form.war
+COPY --from=0 /home/app/target/student-survey-form-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps
 # COPY target/student-survey-form-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/
 COPY tomcat-config/tomcat-users.xml /usr/local/tomcat/conf
 COPY tomcat-config/manager.xml /usr/local/tomcat/conf/Catalina/localhost
