@@ -1,16 +1,22 @@
-FROM maven:3.6.0-jdk-11-slim AS build
-COPY src /home/app/src
-COPY pom.xml /home/app
-RUN mvn -f /home/app/pom.xml package
+# -----Old maven docker code-----
+# FROM maven:3.6.0-jdk-11-slim AS build
+# COPY src /home/app/src
+# COPY pom.xml /home/app
+# RUN mvn -f /home/app/pom.xml package
+
+FROM maven:3.5-jdk-8 AS build  
+COPY src /usr/src/app/src  
+COPY pom.xml /usr/src/app  
+RUN mvn -f /usr/src/app/pom.xml clean package
 
 FROM tomcat:8.0
 LABEL authors="Haramrit Singh Khurana, Ajit Yadav"
 COPY --from=0 /home/app/target/student-survey-form-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps
 # COPY target/student-survey-form-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/
-# COPY tomcat-config/tomcat-users.xml /usr/local/tomcat/conf
-# COPY tomcat-config/manager.xml /usr/local/tomcat/conf/Catalina/localhost
-# COPY tomcat-config/host-manager.xml /usr/local/tomcat/conf/Catalina/localhost
-# COPY tomcat-config/context.xml /usr/local/tomcat/webapps/manager/META-INF
+COPY tomcat-config/tomcat-users.xml /usr/local/tomcat/conf
+COPY tomcat-config/manager.xml /usr/local/tomcat/conf/Catalina/localhost
+COPY tomcat-config/host-manager.xml /usr/local/tomcat/conf/Catalina/localhost
+COPY tomcat-config/context.xml /usr/local/tomcat/webapps/manager/META-INF
 EXPOSE 8383
 EXPOSE 8080
 EXPOSE 80
